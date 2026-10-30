@@ -14,7 +14,6 @@ backend/media/
 
 # Node / React
 node_modules/
-frontend/dist/
 
 # Editor / OS
 .vscode/

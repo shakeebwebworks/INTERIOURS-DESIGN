@@ -1,0 +1,322 @@
+[
+{
+  "model": "services.service",
+  "pk": 1,
+  "fields": {
+    "title": "Interior Design",
+    "slug": "interior-design",
+    "short_description": "Complete interior concepts, from mood boards to material selection.",
+    "description": "We design cohesive, livable interiors tailored to your lifestyle, covering layouts, finishes, furniture, lighting and styling.",
+    "icon": "bi-house-heart",
+    "order": 1,
+    "is_active": true
+  }
+},
+{
+  "model": "services.service",
+  "pk": 2,
+  "fields": {
+    "title": "Home Renovation",
+    "slug": "home-renovation",
+    "short_description": "Full and partial renovations managed from demolition to handover.",
+    "description": "Structural updates, flooring, electrical, plumbing and finishing, coordinated by a single accountable team.",
+    "icon": "bi-hammer",
+    "order": 2,
+    "is_active": true
+  }
+},
+{
+  "model": "services.service",
+  "pk": 3,
+  "fields": {
+    "title": "Modular Kitchens",
+    "slug": "modular-kitchens",
+    "short_description": "Smart, durable kitchens designed around how you cook.",
+    "description": "Ergonomic layouts, quality hardware and finishes, with storage planned for everyday use.",
+    "icon": "bi-grid-1x2",
+    "order": 3,
+    "is_active": true
+  }
+},
+{
+  "model": "services.service",
+  "pk": 4,
+  "fields": {
+    "title": "Living Room Design",
+    "slug": "living-room-design",
+    "short_description": "Warm, welcoming living spaces made for gathering and relaxing.",
+    "description": "Furniture planning, lighting layers, feature walls and decor that balance comfort with character.",
+    "icon": "bi-lamp",
+    "order": 4,
+    "is_active": true
+  }
+},
+{
+  "model": "services.service",
+  "pk": 5,
+  "fields": {
+    "title": "Bedroom Design",
+    "slug": "bedroom-design",
+    "short_description": "Calm, restful bedrooms with considered storage and lighting.",
+    "description": "Wardrobes, headboard walls, soft lighting and textures designed for better rest.",
+    "icon": "bi-moon-stars",
+    "order": 5,
+    "is_active": true
+  }
+},
+{
+  "model": "services.service",
+  "pk": 6,
+  "fields": {
+    "title": "Bathroom Renovation",
+    "slug": "bathroom-renovation",
+    "short_description": "Modern bathrooms with proper waterproofing and fittings.",
+    "description": "Layout updates, premium fittings, tiling and ventilation done to last.",
+    "icon": "bi-droplet",
+    "order": 6,
+    "is_active": true
+  }
+},
+{
+  "model": "services.service",
+  "pk": 7,
+  "fields": {
+    "title": "Space Planning",
+    "slug": "space-planning",
+    "short_description": "Smarter layouts that make every square foot work harder.",
+    "description": "Furniture and circulation planning that improves flow, light and usable space before any work begins.",
+    "icon": "bi-bounding-box",
+    "order": 7,
+    "is_active": true
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 2,
+  "fields": {
+    "title": "Terracotta Court",
+    "slug": "terracotta-court",
+    "location": "Jubilee Hills, Hyderabad",
+    "style": "Contemporary Warm",
+    "summary": "A duplex home with terracotta accents and walnut joinery.",
+    "description": "Demo project. Double-height living space, handcrafted joinery and earthy tones create a home that feels grounded and elegant.",
+    "area_sqft": 2400,
+    "duration_months": 7,
+    "year": 2025,
+    "cover_image": "projects/covers/Screenshot_2026-10-30_090731.png",
+    "cover_alt": "Warm contemporary living room with terracotta accents and walnut joinery",
+    "is_featured": true,
+    "is_active": true,
+    "order": 2,
+    "created_at": "2026-10-28T11:34:34.903Z"
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 3,
+  "fields": {
+    "title": "Walnut & Stone Residence",
+    "slug": "walnut-and-stone-residence",
+    "location": "Koregaon Park, Pune",
+    "style": "Modern Classic",
+    "summary": "A villa renovation blending classic proportions with modern detail.",
+    "description": "Demo project. Full renovation of a villa with new layouts, refined moldings, stone surfaces and bespoke furniture.",
+    "area_sqft": 3100,
+    "duration_months": 9,
+    "year": 2024,
+    "cover_image": "projects/covers/Screenshot_2026-10-30_091928.png",
+    "cover_alt": "Modern classic living room with walnut panelling and stone surfaces",
+    "is_featured": true,
+    "is_active": true,
+    "order": 3,
+    "created_at": "2026-10-28T11:34:34.944Z"
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 4,
+  "fields": {
+    "title": "The Quiet Studio",
+    "slug": "the-quiet-studio",
+    "location": "Bandra West, Mumbai",
+    "style": "Minimalist",
+    "summary": "A compact studio apartment planned for calm and clever storage.",
+    "description": "Demo project. Space planning and multi-functional furniture turn a small footprint into a flexible, uncluttered home.",
+    "area_sqft": 780,
+    "duration_months": 3,
+    "year": 2024,
+    "cover_image": "projects/covers/Screenshot_2026-10-30_093415.png",
+    "cover_alt": "Minimalist studio apartment with white walls and compact storage",
+    "is_featured": false,
+    "is_active": true,
+    "order": 4,
+    "created_at": "2026-10-28T11:34:34.988Z"
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 5,
+  "fields": {
+    "title": "The Linen House",
+    "slug": "the-linen-house",
+    "location": "Indiranagar, Bengaluru",
+    "style": "Japandi",
+    "summary": "A calm 3BHK apartment layered with oak, linen and soft stone.",
+    "description": "Demo project. A family apartment reworked around natural light, warm timber and a restrained palette, with a custom kitchen and built-in storage throughout.",
+    "area_sqft": 1850,
+    "duration_months": 5,
+    "year": 2025,
+    "cover_image": "projects/covers/Screenshot_2026-10-29_192931.png",
+    "cover_alt": "Japandi living room with light oak furniture and linen upholstery",
+    "is_featured": true,
+    "is_active": true,
+    "order": 1,
+    "created_at": "2026-10-29T14:11:22.317Z"
+  }
+},
+{
+  "model": "projects.projectimage",
+  "pk": 15,
+  "fields": {
+    "project": 5,
+    "image": "projects/gallery/RD_LaurelWay_0111_F-35c7768324394f139425937f2527ca92.jpg",
+    "alt_text": "japandi living room",
+    "order": 1
+  }
+},
+{
+  "model": "projects.projectimage",
+  "pk": 16,
+  "fields": {
+    "project": 5,
+    "image": "projects/gallery/09d026d10dc223e071477aa4ed5de1cb.jpg",
+    "alt_text": "calm bedroom",
+    "order": 0
+  }
+},
+{
+  "model": "projects.projectimage",
+  "pk": 17,
+  "fields": {
+    "project": 5,
+    "image": "projects/gallery/Screenshot_2026-10-29_192231_xwLq8rh.png",
+    "alt_text": "cool hall",
+    "order": 0
+  }
+},
+{
+  "model": "projects.projectimage",
+  "pk": 18,
+  "fields": {
+    "project": 5,
+    "image": "projects/gallery/Screenshot_2026-10-29_200004.png",
+    "alt_text": "luxury bedroom",
+    "order": 0
+  }
+},
+{
+  "model": "projects.projectimage",
+  "pk": 19,
+  "fields": {
+    "project": 2,
+    "image": "projects/gallery/Screenshot_2026-10-30_090528.png",
+    "alt_text": "terracotta interior”",
+    "order": 0
+  }
+},
+{
+  "model": "projects.projectimage",
+  "pk": 20,
+  "fields": {
+    "project": 2,
+    "image": "projects/gallery/Screenshot_2026-10-30_090823.png",
+    "alt_text": "terracotta interior”, “walnut wood living room”, “warm modern home”",
+    "order": 0
+  }
+},
+{
+  "model": "projects.projectimage",
+  "pk": 21,
+  "fields": {
+    "project": 2,
+    "image": "projects/gallery/Screenshot_2026-10-30_090932.png",
+    "alt_text": "cool hall",
+    "order": 0
+  }
+},
+{
+  "model": "projects.projectimage",
+  "pk": 22,
+  "fields": {
+    "project": 3,
+    "image": "projects/gallery/Screenshot_2026-10-30_092025.png",
+    "alt_text": "Classic hall",
+    "order": 0
+  }
+},
+{
+  "model": "projects.projectimage",
+  "pk": 23,
+  "fields": {
+    "project": 3,
+    "image": "projects/gallery/Screenshot_2026-10-30_092759.png",
+    "alt_text": "japandi living room",
+    "order": 0
+  }
+},
+{
+  "model": "projects.projectimage",
+  "pk": 24,
+  "fields": {
+    "project": 3,
+    "image": "projects/gallery/Screenshot_2026-10-30_092837.png",
+    "alt_text": "cool hall",
+    "order": 0
+  }
+},
+{
+  "model": "projects.projectimage",
+  "pk": 25,
+  "fields": {
+    "project": 4,
+    "image": "projects/gallery/Screenshot_2026-10-30_092959.png",
+    "alt_text": "minimalist studio apartment",
+    "order": 0
+  }
+},
+{
+  "model": "projects.projectimage",
+  "pk": 26,
+  "fields": {
+    "project": 4,
+    "image": "projects/gallery/Screenshot_2026-10-30_093109.png",
+    "alt_text": "small apartment interior",
+    "order": 0
+  }
+},
+{
+  "model": "projects.projectimage",
+  "pk": 27,
+  "fields": {
+    "project": 4,
+    "image": "projects/gallery/Screenshot_2026-10-30_093243.png",
+    "alt_text": "white minimal bedroom”",
+    "order": 0
+  }
+},
+{
+  "model": "siteconfig.sitesettings",
+  "pk": 1,
+  "fields": {
+    "hero_image": "site/Screenshot_2026-10-30_120648.png",
+    "hero_image_alt": "Bright living room with warm timber furniture and natural light",
+    "studio_address": "Demo studio address, Bengaluru, Karnataka, India",
+    "phone": "+91 00000 00000",
+    "email": "hello@havenandhue.example",
+    "studio_hours": "Monday to Saturday, 10:00 - 18:00",
+    "instagram_url": "https://www.instagram.com/",
+    "pinterest_url": "https://www.pinterest.com/",
+    "linkedin_url": "https://www.linkedin.com/"
+  }
+}
+]
