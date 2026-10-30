@@ -1,0 +1,61 @@
+/* ---------- Scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s var(--hh-ease), transform 0.8s var(--hh-ease);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Cards and images ---------- */
+.hh-card {
+  background: var(--hh-white);
+  border: 1px solid var(--hh-border);
+  border-radius: var(--hh-radius-lg);
+  box-shadow: var(--hh-shadow-sm);
+  transition: transform 0.4s var(--hh-ease), box-shadow 0.4s var(--hh-ease);
+}
+
+.hh-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--hh-shadow-md);
+}
+
+.img-zoom {
+  overflow: hidden;
+  border-radius: var(--hh-radius-lg);
+}
+
+.img-zoom img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--hh-ease);
+}
+
+.img-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hh-card,
+  .img-zoom img,
+  .btn-hh {
+    transition: none;
+  }
+}

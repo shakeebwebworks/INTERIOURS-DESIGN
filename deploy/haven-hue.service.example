@@ -1,0 +1,15 @@
+# Example systemd service: /etc/systemd/system/haven-hue.service
+# Then:  sudo systemctl daemon-reload && sudo systemctl enable --now haven-hue
+[Unit]
+Description=Haven and Hue Django app (gunicorn)
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/srv/haven-hue/backend
+ExecStart=/srv/haven-hue/backend/venv/bin/gunicorn config.wsgi:application --bind 127.0.0.1:8001 --workers 3
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

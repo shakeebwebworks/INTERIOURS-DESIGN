@@ -1,0 +1,23 @@
+# Secrets and local settings (never commit these)
+.env
+backend/.env
+frontend/.env
+
+# Python / Django
+venv/
+__pycache__/
+*.pyc
+backend/db.sqlite3
+*.sqlite3
+backend/staticfiles/
+backend/media/
+
+# Node / React
+node_modules/
+frontend/dist/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

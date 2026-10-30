@@ -1,0 +1,36 @@
+:root {
+  /* Palette: warm cream and beige, charcoal text, walnut and terracotta accents */
+  --hh-cream: #f7f2ea;
+  --hh-beige: #ebe2d3;
+  --hh-sand: #d9cbb6;
+  --hh-white: #fffdf9;
+  --hh-charcoal: #2a2a28;
+  --hh-muted: #6d665d;
+  --hh-walnut: #5b4032;
+  --hh-walnut-dark: #45302a;
+  --hh-terracotta: #a85d43;
+  --hh-terracotta-dark: #8f4c35;
+  --hh-border: rgba(42, 42, 40, 0.14);
+
+  /* Typography */
+  --hh-font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --hh-font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Shape, shadow, motion, spacing */
+  --hh-radius: 4px;
+  --hh-radius-lg: 10px;
+  --hh-shadow-sm: 0 2px 10px rgba(42, 42, 40, 0.06);
+  --hh-shadow-md: 0 14px 40px rgba(42, 42, 40, 0.12);
+  --hh-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --hh-section-space: clamp(4rem, 8vw, 7.5rem);
+
+  /* Map our tokens onto Bootstrap 5 */
+  --bs-body-bg: var(--hh-cream);
+  --bs-body-color: var(--hh-charcoal);
+  --bs-body-font-family: var(--hh-font-body);
+  --bs-body-line-height: 1.7;
+  --bs-link-color: var(--hh-walnut);
+  --bs-link-hover-color: var(--hh-terracotta-dark);
+  --bs-border-color: var(--hh-border);
+  --bs-secondary-color: var(--hh-muted);
+}
