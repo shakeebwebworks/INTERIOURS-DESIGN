@@ -1,9 +1,10 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, re_path
 
 from apps.seo.views import robots_txt, sitemap_xml
+from config.spa import spa_index
 
 admin.site.site_header = "Haven & Hue Interiors - Admin"
 admin.site.site_title = "Haven & Hue Admin"
@@ -21,3 +22,8 @@ urlpatterns = [
 
 # Serve uploaded photos while developing (does nothing when DEBUG is False)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# When a built React site is configured (FRONTEND_DIST_DIR), Django serves it for every other path.
+# Not active in normal development, where Vite serves the frontend.
+if settings.FRONTEND_DIST_DIR:
+    urlpatterns += [re_path(r"^(?!api/|admin/|static/|media/).*$", spa_index)]

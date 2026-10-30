@@ -152,7 +152,7 @@ CSRF_TRUSTED_ORIGINS = env_list("CSRF_TRUSTED_ORIGINS", "http://localhost:5173")
 # Production security (active only when DEBUG is False)
 # ---------------------------------------------------------------------------
 if not DEBUG:
-    SECURE_SSL_REDIRECT = True
+    SECURE_SSL_REDIRECT = os.getenv("DJANGO_SSL_REDIRECT", "True").lower() == "true"
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
     SECURE_HSTS_SECONDS = 31536000
@@ -176,3 +176,11 @@ CACHES = {
         "LOCATION": "django_cache_table",
     }
 }
+
+# ---------------------------------------------------------------------------
+# Built React site (frontend/dist). Set on a server where Django serves the whole website.
+# Leave empty in development, where Vite serves the frontend.
+# ---------------------------------------------------------------------------
+FRONTEND_DIST_DIR = os.getenv("FRONTEND_DIST_DIR", "")
+if FRONTEND_DIST_DIR:
+    WHITENOISE_ROOT = FRONTEND_DIST_DIR  # serves /assets/ and /images/ from the build
