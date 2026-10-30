@@ -79,3 +79,4 @@ export const getProject = (slug, { signal } = {}) =>
 
 export const submitConsultation = (payload) =>
   request("/consultations/", { method: "POST", body: payload });
+export const getSiteSettings = ({ signal } = {}) => request("/site-settings/", { signal });

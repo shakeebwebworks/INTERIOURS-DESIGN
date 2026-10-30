@@ -1,21 +1,24 @@
 import { useState } from "react";
 
+import { useSiteSettings } from "../../context/SiteSettingsContext.jsx";
 import { CONSULTATION_LINK } from "../../utils/navLinks.js";
 import Button from "../common/Button.jsx";
 
 export default function Hero() {
-  // If /images/hero.jpg is missing, the hero falls back to a solid walnut background.
-  const [imageOk, setImageOk] = useState(true);
+  const { settings, loaded } = useSiteSettings();
+  // Remember which image failed, so a new image (after an admin change) gets a fresh try
+  const [failedSrc, setFailedSrc] = useState(null);
+  const showImage = loaded && settings.hero_image && failedSrc !== settings.hero_image;
 
   return (
     <section className="hero" aria-labelledby="hero-title">
-      {imageOk && (
+      {showImage && (
         <img
           className="hero-img"
-          src="/images/hero.jpg"
-          alt="Bright living room with warm timber furniture, linen sofa and natural light"
+          src={settings.hero_image}
+          alt={settings.hero_image_alt}
           fetchpriority="high"
-          onError={() => setImageOk(false)}
+          onError={() => setFailedSrc(settings.hero_image)}
         />
       )}
 

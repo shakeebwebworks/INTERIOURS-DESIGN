@@ -1,9 +1,19 @@
 import { Link } from "react-router-dom";
 
+import { useSiteSettings } from "../../context/SiteSettingsContext.jsx";
 import { FOOTER_SERVICES, NAV_LINKS } from "../../utils/navLinks.js";
+
+const SOCIALS = [
+  ["instagram_url", "bi-instagram", "Instagram"],
+  ["pinterest_url", "bi-pinterest", "Pinterest"],
+  ["linkedin_url", "bi-linkedin", "LinkedIn"],
+];
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const { settings } = useSiteSettings();
+  const socials = SOCIALS.filter(([key]) => settings[key]);
+  const isDemo = settings.email.endsWith(".example");
 
   return (
     <footer className="site-footer">
@@ -17,17 +27,21 @@ export default function Footer() {
               A fictional premium interior design and home renovation studio, created as a demonstration
               website for portfolio purposes.
             </p>
-            <div className="footer-social" aria-label="Social media (demo links)">
-              <a href="#" onClick={(e) => e.preventDefault()} aria-label="Instagram (demo link)">
-                <i className="bi bi-instagram" aria-hidden="true" />
-              </a>
-              <a href="#" onClick={(e) => e.preventDefault()} aria-label="Pinterest (demo link)">
-                <i className="bi bi-pinterest" aria-hidden="true" />
-              </a>
-              <a href="#" onClick={(e) => e.preventDefault()} aria-label="LinkedIn (demo link)">
-                <i className="bi bi-linkedin" aria-hidden="true" />
-              </a>
-            </div>
+            {socials.length > 0 && (
+              <div className="footer-social">
+                {socials.map(([key, icon, name]) => (
+                  <a
+                    key={key}
+                    href={settings[key]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${name} (opens in a new tab)`}
+                  >
+                    <i className={`bi ${icon}`} aria-hidden="true" />
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="col-6 col-lg-2">
@@ -53,16 +67,18 @@ export default function Footer() {
           </div>
 
           <div className="col-lg-3">
-            <h2 className="footer-title">Contact (demo details)</h2>
+            <h2 className="footer-title">{isDemo ? "Contact (demo details)" : "Contact"}</h2>
             <ul className="footer-list footer-contact">
               <li>
-                <i className="bi bi-geo-alt" aria-hidden="true" /> Demo studio address, Bengaluru, Karnataka
+                <i className="bi bi-geo-alt" aria-hidden="true" /> {settings.studio_address}
               </li>
               <li>
-                <i className="bi bi-telephone" aria-hidden="true" /> +91 00000 00000
+                <i className="bi bi-telephone" aria-hidden="true" />{" "}
+                <a href={`tel:${settings.phone.replace(/[^\d+]/g, "")}`}>{settings.phone}</a>
               </li>
               <li>
-                <i className="bi bi-envelope" aria-hidden="true" /> hello@havenandhue.example
+                <i className="bi bi-envelope" aria-hidden="true" />{" "}
+                <a href={`mailto:${settings.email}`}>{settings.email}</a>
               </li>
             </ul>
           </div>

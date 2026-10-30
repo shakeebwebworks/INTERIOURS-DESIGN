@@ -14,6 +14,7 @@ urlpatterns = [
     path("api/services/", include("apps.services.urls")),
     path("api/projects/", include("apps.projects.urls")),
     path("api/consultations/", include("apps.consultations.urls")),
+    path("api/site-settings/", include("apps.siteconfig.urls")),
     path("sitemap.xml", sitemap_xml, name="sitemap"),
     path("robots.txt", robots_txt, name="robots"),
 ]

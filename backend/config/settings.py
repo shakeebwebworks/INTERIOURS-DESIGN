@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "apps.services",
     "apps.projects",
     "apps.consultations",
+    "apps.siteconfig",
 ]
 
 MIDDLEWARE = [

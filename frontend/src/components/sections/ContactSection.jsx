@@ -1,17 +1,32 @@
+import { useSiteSettings } from "../../context/SiteSettingsContext.jsx";
 import ConsultationForm from "../forms/ConsultationForm.jsx";
 import Reveal from "../common/Reveal.jsx";
 import SectionHeading from "../common/SectionHeading.jsx";
 import "../../styles/contact.css";
 
-// All details below are DEMO placeholders for a fictional company.
-const DETAILS = [
-  { icon: "bi-geo-alt", label: "Studio", value: "Demo studio address, Bengaluru, Karnataka, India" },
-  { icon: "bi-telephone", label: "Phone", value: "+91 00000 00000" },
-  { icon: "bi-envelope", label: "Email", value: "hello@havenandhue.example" },
-  { icon: "bi-clock", label: "Studio hours", value: "Monday to Saturday, 10:00 - 18:00" },
+const SOCIALS = [
+  ["instagram_url", "bi-instagram", "Instagram"],
+  ["pinterest_url", "bi-pinterest", "Pinterest"],
+  ["linkedin_url", "bi-linkedin", "LinkedIn"],
 ];
 
 export default function ContactSection() {
+  const { settings } = useSiteSettings();
+  const isDemo = settings.email.endsWith(".example");
+
+  const details = [
+    { icon: "bi-geo-alt", label: "Studio", value: settings.studio_address },
+    {
+      icon: "bi-telephone",
+      label: "Phone",
+      value: settings.phone,
+      href: `tel:${settings.phone.replace(/[^\d+]/g, "")}`,
+    },
+    { icon: "bi-envelope", label: "Email", value: settings.email, href: `mailto:${settings.email}` },
+    { icon: "bi-clock", label: "Studio hours", value: settings.studio_hours },
+  ];
+  const socials = SOCIALS.filter(([key]) => settings[key]);
+
   return (
     <section id="contact" className="section-pad" aria-labelledby="contact-title">
       <div className="container">
@@ -27,7 +42,7 @@ export default function ContactSection() {
               />
 
               <dl className="contact-list">
-                {DETAILS.map((item) => (
+                {details.map((item) => (
                   <div className="contact-row" key={item.label}>
                     <dt>
                       <i className={`bi ${item.icon}`} aria-hidden="true" />
@@ -35,27 +50,33 @@ export default function ContactSection() {
                     </dt>
                     <dd>
                       <small>{item.label}</small>
-                      {item.value}
+                      {item.href ? <a href={item.href}>{item.value}</a> : item.value}
                     </dd>
                   </div>
                 ))}
               </dl>
 
-              <div className="contact-social" aria-label="Social media (demo links)">
-                <a href="#" onClick={(e) => e.preventDefault()} aria-label="Instagram (demo link)">
-                  <i className="bi bi-instagram" aria-hidden="true" />
-                </a>
-                <a href="#" onClick={(e) => e.preventDefault()} aria-label="Pinterest (demo link)">
-                  <i className="bi bi-pinterest" aria-hidden="true" />
-                </a>
-                <a href="#" onClick={(e) => e.preventDefault()} aria-label="LinkedIn (demo link)">
-                  <i className="bi bi-linkedin" aria-hidden="true" />
-                </a>
-              </div>
+              {socials.length > 0 && (
+                <div className="contact-social">
+                  {socials.map(([key, icon, name]) => (
+                    <a
+                      key={key}
+                      href={settings[key]}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${name} (opens in a new tab)`}
+                    >
+                      <i className={`bi ${icon}`} aria-hidden="true" />
+                    </a>
+                  ))}
+                </div>
+              )}
 
-              <p className="demo-note mt-4 mb-0">
-                Contact details on this page are demonstration placeholders for a fictional studio.
-              </p>
+              {isDemo && (
+                <p className="demo-note mt-4 mb-0">
+                  Contact details on this page are demonstration placeholders for a fictional studio.
+                </p>
+              )}
             </Reveal>
           </div>
 

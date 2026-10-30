@@ -9,11 +9,14 @@ import "./styles/global.css";
 import "./styles/components.css";
 
 import App from "./App.jsx";
+import { SiteSettingsProvider } from "./context/SiteSettingsContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <SiteSettingsProvider>
+        <App />
+      </SiteSettingsProvider>
     </BrowserRouter>
   </StrictMode>
 );
