@@ -184,3 +184,17 @@ CACHES = {
 FRONTEND_DIST_DIR = os.getenv("FRONTEND_DIST_DIR", "")
 if FRONTEND_DIST_DIR:
     WHITENOISE_ROOT = FRONTEND_DIST_DIR  # serves /assets/ and /images/ from the build
+
+# ---------------------------------------------------------------------------
+# Render tells every service its own public hostname. Trust it automatically,
+# so a typo in the environment variables cannot lock the site out.
+# ---------------------------------------------------------------------------
+RENDER_EXTERNAL_HOSTNAME = os.getenv("RENDER_EXTERNAL_HOSTNAME", "")
+if RENDER_EXTERNAL_HOSTNAME:
+    _render_origin = f"https://{RENDER_EXTERNAL_HOSTNAME}"
+    if RENDER_EXTERNAL_HOSTNAME not in ALLOWED_HOSTS:
+        ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+    if _render_origin not in CSRF_TRUSTED_ORIGINS:
+        CSRF_TRUSTED_ORIGINS.append(_render_origin)
+    if _render_origin not in CORS_ALLOWED_ORIGINS:
+        CORS_ALLOWED_ORIGINS.append(_render_origin)
